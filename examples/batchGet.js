@@ -1,14 +1,14 @@
 'use strict';
 
-var dynamo = require('../index'),
-    async  = require('async'),
-    _      = require('lodash'),
-    AWS    = dynamo.AWS,
-    Joi    = require('joi');
+let dynamo = require('../index');
+let async  = require('async');
+let _      = require('lodash');
+let AWS    = dynamo.AWS;
+let Joi    = require('joi');
 
 AWS.config.loadFromPath(process.env.HOME + '/.ec2/credentials.json');
 
-var Account = dynamo.define('example-batch-get-account', {
+let Account = dynamo.define('example-batch-get-account', {
   hashKey : 'email',
   timestamps : true,
   schema : {
@@ -19,7 +19,7 @@ var Account = dynamo.define('example-batch-get-account', {
   }
 });
 
-var printAccountInfo = function (err, acc) {
+let printAccountInfo = function (err, acc) {
   if(err) {
     console.log('got error', err);
   } else if (acc) {
@@ -29,7 +29,7 @@ var printAccountInfo = function (err, acc) {
   }
 };
 
-var loadSeedData = function (callback) {
+let loadSeedData = function (callback) {
   callback = callback || _.noop;
 
   async.times(15, function(n, next) {
