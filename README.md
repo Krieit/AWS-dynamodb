@@ -1,26 +1,14 @@
 
 `dynamodb` is a [DynamoDB][5] data mapper for [node.js][1].
 
-## Features
-* Simplified data modeling and mapping to DynamoDB types
-* Advanced chainable apis for [query](#query) and [scan](#scan) operations
-* Data validation
-* [Autogenerating UUIDs](#uuid)
-* [Global Secondary Indexes](#global-indexes)
-* [Local Secondary Indexes](#local-secondary-indexes)
-* [Parallel Scans](#parallel-scan)
-
 ## Installation
 
     npm install dynamodb
+    yarn add dynamodb
 
 ## Getting Started
 First, you need to configure the [AWS SDK][2] with your credentials.
 
-```js
-var dynamo = require('dynamodb');
-dynamo.AWS.config.loadFromPath('credentials.json');
-```
 
 When running on EC2 its recommended to leverage EC2 IAM roles. If you have configured your instance to use IAM roles, DynamoDB will automatically select these credentials for use in your application, and you do not need to manually provide credentials in any other format.
 
